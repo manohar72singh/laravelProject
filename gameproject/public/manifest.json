@@ -1,0 +1,42 @@
+{
+  "name": "All New Yono Apps",
+  "short_name": "YonoApps",
+  "description": "All Yono Games, Rummy Apps & Slots Games – Download & Earn Big Bonuses!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fb3737",
+  "theme_color": "#fb3737",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["games", "entertainment", "finance"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "New Games",
+      "short_name": "New",
+      "description": "Browse latest new gaming apps",
+      "url": "/?category=new",
+      "icons": [{ "src": "/favicon.ico", "sizes": "48x48" }]
+    }
+  ]
+}
