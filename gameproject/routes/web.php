@@ -16,8 +16,10 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contact', [HomeController::class, 'submitContact'])->name('contact.submit');
 Route::get('/disclaimer', [HomeController::class, 'disclaimer'])->name('disclaimer');
+Route::get('/sitemap.xml', [HomeController::class, 'sitemap'])->name('sitemap');
 
 // Review Submit (public)
+
 Route::post('/reviews', [HomeController::class, 'submitReview'])->name('review.submit');
 
 // Admin Authentication Routes (Guest Only)

@@ -114,6 +114,7 @@
     /* Table responsive container wrapper */
     .table-container {
         width: 100%;
+        max-width: 100%;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         border-radius: 12px;

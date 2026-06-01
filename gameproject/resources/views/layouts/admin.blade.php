@@ -136,6 +136,8 @@
             flex-direction: column;
             gap: 24px;
             transition: all 0.3s ease;
+            min-width: 0;
+            max-width: 100vw;
         }
 
         /* Top Admin Profile strip */
@@ -210,6 +212,8 @@
             border-radius: var(--card-radius);
             padding: 24px;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
         /* Footer */

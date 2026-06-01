@@ -127,6 +127,48 @@ class HomeController extends Controller
     }
 
     /**
+     * Generate dynamic sitemap.xml for better SEO indexing.
+     */
+    public function sitemap()
+    {
+        $apps = App::orderBy('updated_at', 'desc')->get();
+        
+        $xml = '<?xml version="1.0" encoding="UTF-8"?>';
+        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+        
+        // Static routes
+        $staticRoutes = [
+            'home' => '1.0',
+            'about' => '0.8',
+            'contact' => '0.8',
+            'disclaimer' => '0.5'
+        ];
+        
+        foreach ($staticRoutes as $routeName => $priority) {
+            $xml .= '<url>';
+            $xml .= '<loc>' . route($routeName) . '</loc>';
+            $xml .= '<lastmod>' . now()->toAtomString() . '</lastmod>';
+            $xml .= '<changefreq>weekly</changefreq>';
+            $xml .= '<priority>' . $priority . '</priority>';
+            $xml .= '</url>';
+        }
+        
+        // Dynamic App routes
+        foreach ($apps as $app) {
+            $xml .= '<url>';
+            $xml .= '<loc>' . route('game.detail', $app->slug) . '</loc>';
+            $xml .= '<lastmod>' . $app->updated_at->toAtomString() . '</lastmod>';
+            $xml .= '<changefreq>weekly</changefreq>';
+            $xml .= '<priority>0.9</priority>';
+            $xml .= '</url>';
+        }
+        
+        $xml .= '</urlset>';
+        
+        return response($xml, 200)->header('Content-Type', 'text/xml');
+    }
+
+    /**
      * Fetch all site settings key-values as a unified helper array.
      */
     private function getSiteSettings()

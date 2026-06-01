@@ -56,61 +56,6 @@
         }
 
 
-        /* ===== FOMO Live Activity Ticker ===== */
-        .fomo-ticker {
-            background: linear-gradient(90deg, #1a1a2e, #16213e, #0f3460);
-            color: #fbbf24;
-            padding: 6px 0;
-            overflow: hidden;
-            position: relative;
-            border-bottom: 1px solid rgba(251,191,36,0.2);
-        }
-        .ticker-live-badge {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            background: #ef4444;
-            color: white;
-            font-size: 9px;
-            font-weight: 800;
-            padding: 0 10px;
-            display: flex;
-            align-items: center;
-            letter-spacing: 1.5px;
-            z-index: 2;
-            text-transform: uppercase;
-        }
-        .ticker-track {
-            display: flex;
-            gap: 0;
-            animation: tickerScroll 40s linear infinite;
-            will-change: transform;
-            padding-left: calc(100% + 55px);
-        }
-        .ticker-item {
-            white-space: nowrap;
-            font-size: 11.5px;
-            font-weight: 600;
-            padding: 0 28px;
-            color: #fcd34d;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-        }
-        .ticker-item .ti-icon { font-size: 12px; }
-        .ticker-item .ti-sep {
-            color: rgba(251,191,36,0.3);
-            font-size: 16px;
-            font-weight: 300;
-        }
-        @keyframes tickerScroll {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .fomo-ticker:hover .ticker-track { animation-play-state: paused; }
-
-
         * {
             margin: 0;
             padding: 0;
@@ -706,28 +651,7 @@
             </button>
         </header>
 
-        <!-- FOMO Live Activity Ticker -->
-        <div class="fomo-ticker">
-            <span class="ticker-live-badge">🔴 Live</span>
-            <div class="ticker-track">
-                <span class="ticker-item"><i class="fas fa-download ti-icon"></i> Ravi from Mumbai downloaded Teen Patti Gold – ₹300 Signup Bonus claimed! <span class="ti-sep">|</span></span>
-                <span class="ticker-item"><i class="fas fa-rupee-sign ti-icon" style="color:#34d399"></i> Priya (Delhi) withdrew ₹2,400 instantly from Yono Rummy! <span class="ti-sep">|</span></span>
-                <span class="ticker-item"><i class="fas fa-fire ti-icon" style="color:#f97316"></i> Yono Master added 200+ new users in the last hour! <span class="ti-sep">|</span></span>
-                <span class="ticker-item"><i class="fas fa-star ti-icon" style="color:#fbbf24"></i> Arjun (Pune) rated Yono Slots 5⭐ – "Fastest withdrawal ever!" <span class="ti-sep">|</span></span>
-                <span class="ticker-item"><i class="fas fa-download ti-icon"></i> Anil from Jaipur downloaded Ludo Empire – ₹51 Free Bonus! <span class="ti-sep">|</span></span>
-                <span class="ticker-item"><i class="fas fa-rupee-sign ti-icon" style="color:#34d399"></i> Sunita (Hyderabad) cashed out ₹5,000 in just 3 minutes! <span class="ti-sep">|</span></span>
-                <span class="ticker-item"><i class="fas fa-trophy ti-icon" style="color:#fbbf24"></i> 10,000+ downloads this week across all Yono apps! <span class="ti-sep">|</span></span>
-                <!-- Duplicate for seamless infinite loop -->
-                <span class="ticker-item"><i class="fas fa-download ti-icon"></i> Ravi from Mumbai downloaded Teen Patti Gold – ₹300 Signup Bonus claimed! <span class="ti-sep">|</span></span>
-                <span class="ticker-item"><i class="fas fa-rupee-sign ti-icon" style="color:#34d399"></i> Priya (Delhi) withdrew ₹2,400 instantly from Yono Rummy! <span class="ti-sep">|</span></span>
-                <span class="ticker-item"><i class="fas fa-fire ti-icon" style="color:#f97316"></i> Yono Master added 200+ new users in the last hour! <span class="ti-sep">|</span></span>
-                <span class="ticker-item"><i class="fas fa-star ti-icon" style="color:#fbbf24"></i> Arjun (Pune) rated Yono Slots 5⭐ – "Fastest withdrawal ever!" <span class="ti-sep">|</span></span>
-                <span class="ticker-item"><i class="fas fa-download ti-icon"></i> Anil from Jaipur downloaded Ludo Empire – ₹51 Free Bonus! <span class="ti-sep">|</span></span>
-                <span class="ticker-item"><i class="fas fa-rupee-sign ti-icon" style="color:#34d399"></i> Sunita (Hyderabad) cashed out ₹5,000 in just 3 minutes! <span class="ti-sep">|</span></span>
-                <span class="ticker-item"><i class="fas fa-trophy ti-icon" style="color:#fbbf24"></i> 10,000+ downloads this week across all Yono apps! <span class="ti-sep">|</span></span>
-            </div>
-        </div>
-        
+
         <!-- Top Navigation Menu -->
         <nav class="nav-menu" role="navigation">
             <a href="{{ route('home') }}" class="nav-item {{ Route::is('home') ? 'active' : '' }}">

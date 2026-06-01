@@ -155,36 +155,69 @@
         <!-- Right Main Content Column -->
         <div class="detail-main-content">
             <!-- About Content Section -->
-            @if(!empty($app->about_text))
-                <section class="info-block">
-                    <h3><i class="fas fa-info-circle"></i> About {{ $app->name }}</h3>
+            <section class="info-block">
+                <h3><i class="fas fa-info-circle"></i> About {{ $app->name }}</h3>
+                @if(!empty($app->about_text))
                     <p>{{ $app->about_text }}</p>
-                </section>
-            @endif
+                @else
+                    <p>{{ $app->name }} is a premium gaming application that offers an immersive and rewarding experience. With a wide variety of games including rummy, slots, and spin games, it provides players with the opportunity to win real cash daily. The app is designed with a user-friendly interface, ensuring smooth gameplay and fast, secure transactions for all its users.</p>
+                @endif
+            </section>
 
             <!-- Dynamic Features list -->
-            @if(is_array($app->features) && count($app->features) > 0)
-                <section class="info-block">
-                    <h3><i class="fas fa-gift"></i> Key Features & Benefits</h3>
-                    <ul>
+            <section class="info-block">
+                <h3><i class="fas fa-gift"></i> Key Features & Benefits</h3>
+                <ul>
+                    @if(is_array($app->features) && count($app->features) > 0)
                         @foreach($app->features as $feature)
                             <li>{!! e($feature) !!}</li>
                         @endforeach
-                    </ul>
-                </section>
-            @endif
+                    @else
+                        <li>Instant Signup Bonus of {{ $app->bonus_amount }}</li>
+                        <li>Smooth and fast gameplay</li>
+                        <li>Real money rewards and daily bonuses</li>
+                        <li>100% Safe and Secure</li>
+                        <li>Quick withdrawal starting from {{ $app->min_withdrawal }}</li>
+                    @endif
+                </ul>
+            </section>
+
+            <!-- Download & Signup Claim Bonus Section -->
+            <section class="info-block">
+                <h3><i class="fas fa-hand-holding-usd"></i> {{ $app->name }} Download & Signup Claim Bonus {{ $app->bonus_amount }}</h3>
+                
+                <div style="margin-top: 12px;">
+                    <h4 style="font-size: 14px; font-weight: 700; color: var(--text-main); margin-bottom: 4px;">ऐप डाउनलोड:</h4>
+                    <p>First, click on the download button provided above to download the {{ $app->name }} APK file and install it on your device.</p>
+                </div>
+
+                <div style="margin-top: 16px;">
+                    <h4 style="font-size: 14px; font-weight: 700; color: var(--text-main); margin-bottom: 4px;">{{ $app->name }} रजिस्टर करें:</h4>
+                    <p>Open the app and complete the registration process by entering your mobile number and verifying it via OTP.</p>
+                </div>
+
+                <div style="margin-top: 16px;">
+                    <h4 style="font-size: 14px; font-weight: 700; color: var(--text-main); margin-bottom: 4px;">{{ $app->name }} Bonus Claim:</h4>
+                    <p>Once your registration is successful, your signup bonus of {{ $app->bonus_amount }} will be automatically credited to your game wallet to play and win real cash.</p>
+                </div>
+            </section>
 
             <!-- Dynamic Download steps guide -->
-            @if(is_array($app->download_steps) && count($app->download_steps) > 0)
-                <section class="info-block bg-steps">
-                    <h3><i class="fas fa-mobile-alt"></i> How to Download & Install</h3>
-                    <ol class="step-ol">
+            <section class="info-block bg-steps">
+                <h3><i class="fas fa-mobile-alt"></i> How to Download & Install</h3>
+                <ol class="step-ol">
+                    @if(is_array($app->download_steps) && count($app->download_steps) > 0)
                         @foreach($app->download_steps as $step)
                             <li>{!! e($step) !!}</li>
                         @endforeach
-                    </ol>
-                </section>
-            @endif
+                    @else
+                        <li>Click on the "DOWNLOAD {{ strtoupper($app->name) }} APK" button above.</li>
+                        <li>If prompted, allow installation from "Unknown Sources" in your Android settings.</li>
+                        <li>Install the downloaded APK file on your device.</li>
+                        <li>Open {{ $app->name }}, register your account, and get your {{ $app->bonus_amount }} bonus instantly!</li>
+                    @endif
+                </ol>
+            </section>
 
             <!-- Security Information -->
             <section class="info-block">
